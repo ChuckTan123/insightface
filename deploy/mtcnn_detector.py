@@ -6,7 +6,11 @@ import math
 import cv2
 from multiprocessing import Pool
 from itertools import repeat
-from itertools import izip
+# from itertools import izip
+try:
+    from itertools import izip
+except ImportError:  #python3.x
+    izip = zip
 from helper import nms, adjust_input, generate_bbox, detect_first_stage_warpper
 
 class MtcnnDetector(object):
