@@ -89,18 +89,17 @@ while True:
         # print (btop, bleft, bright, bbottom)
         # Draw a box around the face
         cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-        cv2.rectangle(frame, (bleft, btop), (bright, bbottom), (0, 0, 255), 2)
+        # cv2.rectangle(frame, (bleft, btop), (bright, bbottom), (0, 0, 255), 2)
         imageFace = frame[btop:bbottom, bleft:bright, :]
         if idx == 1:
             people, mes = faceRecognition(imageFace)
-        else:
-            idx -= 1
         print (people, mes)
 
         # Draw a label with a name below the face
         cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frame, "{}, {}".format(people, mes), (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+    idx -= 1
     if idx == 0:
         idx = 15
     # Display the resulting image
