@@ -101,7 +101,7 @@ def faceRecognition(img2):
 #         img2 = cv2.imread(filename)
 #         # img2 = cv2.imread('zhang/1.jpeg')
 #
-#         # matching
+#         # matchingls
 #         logging.debug("Start Matching")
 #         id = False
 #         for p, fList, mes in zip(people_list, features_list, info):
